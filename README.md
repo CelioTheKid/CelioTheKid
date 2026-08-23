@@ -22,4 +22,7 @@
  [ DEFESA ATIVA & SOC ] ─────> Filtro RAW Anti-DDoS, Mitigação Brute-Force 3 Estágios, Drop Scans
  [ TELEMETRIA & NOC ]   ─────> The Dude Server, SNMP v2c/v3, Syslog Centralizado, Auto-Health Check
 
-🔬 Laboratório & Engenharia de RedesAnálise Forense de Tráfego: Dissecção de capturas (.pcapng / Wireshark) para isolamento de gargalos L2/L3, exaustão de airtime Wi-Fi e tempestades de broadcast/multicast (mDNS, SSDP, IGMP/M2U).Engenharia de Rádio & WLAN: Otimização de taxas básicas mínimas (Basic Rates $\ge$ 12 Mbps), mitigação de overhead de beacons e sintonia de canais 802.11ax (Wi-Fi 6).Segurança de Borda & Roteamento: Implementação de regras RAW para descarte em pré-roteamento sem consumo de CPU, balanceamento PCC e túneis encapsulados.
+🔬 Laboratório & Engenharia de Redes
+Análise Forense de Tráfego: Dissecção de capturas (.pcapng / Wireshark) para isolamento de gargalos L2/L3, exaustão de airtime Wi-Fi e tempestades de broadcast/multicast (mDNS, SSDP, IGMP/M2U).
+Engenharia de Rádio & WLAN: Otimização de taxas básicas mínimas (Basic Rates $\ge$ 12 Mbps), mitigação de overhead de beacons e sintonia de canais 802.11ax (Wi-Fi 6).
+Segurança de Borda & Roteamento: Implementação de regras RAW para descarte em pré-roteamento sem consumo de CPU, balanceamento PCC e túneis encapsulados.

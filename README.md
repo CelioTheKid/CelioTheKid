@@ -22,7 +22,6 @@
  [ DEFESA ATIVA & SOC ] ─────> Filtro RAW Anti-DDoS, Mitigação Brute-Force 3 Estágios, Drop Scans
  [ TELEMETRIA & NOC ]   ─────> The Dude Server, SNMP v2c/v3, Syslog Centralizado, Auto-Health Check
 
-```text
 🔬 Laboratório & Dissecção de Pacotes
 Diagnóstico Profundo de Tráfego: Análise forense de capturas de rede (.pcapng / Wireshark) para isolamento de gargalos em L2/L3, exaustão de airtime Wi-Fi, storm de broadcast/multicast (mDNS, SSDP, EShare/AirPlay) e estouro de tabelas de estado (NAT/conntrack).
 

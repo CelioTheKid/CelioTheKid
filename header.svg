@@ -10,7 +10,7 @@
       <stop offset="1" stop-color="#7000ff"/>
     </linearGradient>
     
-    <!-- Laser Beam / Scanline Gradient -->
+    <!-- Laser Scanline Gradient -->
     <linearGradient id="laser-beam" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#00f0ff" stop-opacity="0"/>
       <stop offset="50%" stop-color="#00f0ff" stop-opacity="0.35"/>
@@ -33,42 +33,34 @@
     .term-label { font-size: 11px; fill: #00f0ff; font-weight: bold; }
     .term-val { font-size: 11px; fill: #f8fafc; }
 
-    /* CSS KEYFRAME ANIMATIONS */
+    /* CSS Keyframe Animations */
     @keyframes scanmove {
-      0% { transform: translateY(-40px); }
+      0% { transform: translateY(-30px); }
       50% { transform: translateY(380px); }
-      100% { transform: translateY(-40px); }
+      100% { transform: translateY(-30px); }
     }
     @keyframes pulseHolo {
-      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 2px #00f0ff); }
+      0%, 100% { opacity: 0.9; filter: drop-shadow(0 0 3px #00f0ff); }
       50% { opacity: 0.45; filter: drop-shadow(0 0 8px #7000ff); }
     }
     @keyframes blinkLed {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.2; }
+      50% { opacity: 0.15; }
     }
-    @keyframes glitchText {
-      0%, 92%, 100% { transform: translate(0, 0); }
-      93% { transform: translate(-2px, 1px); }
-      95% { transform: translate(2px, -1px); }
-      97% { transform: translate(-1px, -1px); }
+    @keyframes glitch {
+      0%, 90%, 100% { transform: translate(0, 0); }
+      92% { transform: translate(-2px, 1px); }
+      94% { transform: translate(2px, -1px); }
+      96% { transform: translate(-1px, 0); }
     }
 
-    .scanner {
-      animation: scanmove 4.5s ease-in-out infinite;
-    }
-    .holo-core {
-      animation: pulseHolo 3s ease-in-out infinite;
-    }
-    .status-blink {
-      animation: blinkLed 1.2s infinite;
-    }
-    .glitch-target {
-      animation: glitchText 4s infinite;
-    }
+    .scanner { animation: scanmove 4.5s ease-in-out infinite; }
+    .holo-core { animation: pulseHolo 3s ease-in-out infinite; }
+    .status-blink { animation: blinkLed 1.2s infinite; }
+    .glitch-target { animation: glitch 4s infinite; }
   </style>
 
-  <!-- Main Frame Container -->
+  <!-- Main HUD Frame -->
   <rect x="2" y="2" width="856" height="416" rx="14" fill="url(#hud-bg)" stroke="#1e293b" stroke-width="1.5"/>
   <rect x="2" y="2" width="856" height="416" rx="14" fill="url(#hud-grid)"/>
 
@@ -96,27 +88,49 @@
   </g>
   <line x1="20" y1="46" x2="840" y2="46" stroke="#1e293b" stroke-width="1"/>
 
-  <!-- LEFT BOX: HOLOGRAPHIC MATRIX -->
+  <!-- LEFT BOX: VECTOR TOPOLOGY & TELEMETRY -->
   <rect x="30" y="65" width="340" height="325" rx="8" fill="#030712" stroke="#00f0ff" stroke-opacity="0.35" stroke-width="1"/>
   <text x="45" y="88" class="mono" font-size="10" fill="#38bdf8" letter-spacing="1">VISUAL_MAP // SEC_TOPOLOGY_MATRIX</text>
   <line x1="45" y1="96" x2="355" y2="96" stroke="#1e293b" stroke-width="1"/>
 
-  <!-- Animated Hologram Body -->
-  <g class="mono holo-core" font-size="9" fill="#00f0ff">
-    <text x="50" y="125">     .---.       [ BORDER / EDGE CORE ]</text>
-    <text x="50" y="140">    /     \      WAN ──> PPPoE / BGP Peering</text>
-    <text x="50" y="155">   | () () |     Status: WireGuard ACTIVE</text>
-    <text x="50" y="170">    \  -  /      Throughput: 1.0 Gbps (HW-Off)</text>
-    <text x="50" y="185">     '---'       Firewall: RAW + Stateful Inspection</text>
-    <text x="50" y="210">  [ SECURITY TELEMETRY OVERLAY ]</text>
-    <text x="50" y="225">  ├─ PORT SCAN PSD  : [ ONLINE / 0 DOWNTIME ]</text>
-    <text x="50" y="240">  ├─ BRUTE FORCE BF : [ 3-STAGE MITIGATION ]</text>
-    <text x="50" y="255">  ├─ THE DUDE PROBES: [ ALL SENSORS 100% UP ]</text>
-    <text x="50" y="270">  └─ MSS CLAMPING   : [ AUTO PMTU ENABLED ]</text>
-    <text x="50" y="300" fill="#c084fc">  > SYSTEM TARGET: CELIO ASSIS // OPERATOR</text>
-    <text x="50" y="318" fill="#4ade80">  > CONVERGENCE : HIGH AVAILABILITY L2/L3</text>
-    <text x="50" y="336" fill="#38bdf8">  > LATENCY NOC : 0.8ms [JITTER 0.02ms]</text>
+  <!-- Vector Core Diagram -->
+  <g class="holo-core">
+    <!-- Center Core Box -->
+    <rect x="50" y="112" width="105" height="58" rx="5" fill="#082f49" stroke="#00f0ff" stroke-width="1.2"/>
+    <text x="63" y="132" class="mono" font-size="9" fill="#38bdf8" font-weight="bold">CORE_ROUTER</text>
+    <text x="63" y="146" class="mono" font-size="8" fill="#22c55e">MT-CCR-01</text>
+    <circle cx="142" cy="141" r="3" fill="#22c55e" class="status-blink"/>
+
+    <!-- Dynamic Flow Lines -->
+    <line x1="155" y1="128" x2="190" y2="128" stroke="#00f0ff" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="155" y1="152" x2="190" y2="152" stroke="#00f0ff" stroke-width="1" stroke-dasharray="2,2"/>
+    
+    <text x="195" y="132" class="mono" font-size="9" fill="#f8fafc">WAN ──> BGP PEERING</text>
+    <text x="195" y="156" class="mono" font-size="9" fill="#c084fc">VPN ──> WIREGUARD</text>
+
+    <line x1="50" y1="182" x2="350" y2="182" stroke="#1e293b" stroke-width="1"/>
   </g>
+
+  <!-- Telemetry Metrics & Status -->
+  <g class="mono" font-size="9" fill="#00f0ff">
+    <text x="50" y="202" fill="#38bdf8">[ SECURITY TELEMETRY OVERLAY ]</text>
+    <text x="50" y="220" fill="#94a3b8">├─ PORT SCAN PSD  : </text>
+    <text x="175" y="220" fill="#4ade80">[ ONLINE / 0 DOWNTIME ]</text>
+
+    <text x="50" y="238" fill="#94a3b8">├─ BRUTE FORCE BF : </text>
+    <text x="175" y="238" fill="#4ade80">[ 3-STAGE MITIGATION ]</text>
+
+    <text x="50" y="256" fill="#94a3b8">├─ THE DUDE PROBES: </text>
+    <text x="175" y="256" fill="#4ade80">[ ALL SENSORS 100% UP ]</text>
+
+    <text x="50" y="274" fill="#94a3b8">└─ MSS CLAMPING   : </text>
+    <text x="175" y="274" fill="#38bdf8">[ AUTO PMTU ENABLED ]</text>
+
+    <text x="50" y="302" fill="#c084fc">> SYSTEM TARGET: CELIO ASSIS // OPERATOR</text>
+    <text x="50" y="320" fill="#4ade80">> CONVERGENCE : HIGH AVAILABILITY L2/L3</text>
+    <text x="50" y="338" fill="#38bdf8">> LATENCY NOC : 0.8ms [JITTER 0.02ms]</text>
+  </g>
+
   <rect x="45" y="355" width="310" height="22" rx="3" fill="#082f49" stroke="#00f0ff" stroke-width="0.5"/>
   <text x="105" y="370" class="mono glitch-target" font-size="10" fill="#38bdf8">NODE ID: KIDPEACES // MT-CORE-01</text>
 
